@@ -83,7 +83,7 @@ func CompressBound(srcSize int) int {
 
 // cCompressBound is a cgo call to check the go implementation above against the c code.
 func cCompressBound(srcSize int) int {
-	return int(C.ZSTD_compressBound(C.size_t(srcSize)))
+	return int(C.ZSTD0_compressBound(C.size_t(srcSize)))
 }
 
 // getError returns an error for the return code, or nil if it's not an error
@@ -95,7 +95,7 @@ func getError(code int) error {
 }
 
 func cIsError(code int) bool {
-	return int(C.ZSTD_isError(C.size_t(code))) != 0
+	return int(C.ZSTD0_isError(C.size_t(code))) != 0
 }
 
 // Compress src into dst.  If you have a buffer to use, you can pass it to
@@ -117,7 +117,7 @@ func CompressLevel(dst, src []byte, level int) ([]byte, error) {
 		dst = make([]byte, bound)
 	}
 
-	cWritten := C.ZSTD_compress(
+	cWritten := C.ZSTD0_compress(
 		unsafe.Pointer(&dst[0]),
 		C.size_t(len(dst)),
 		unsafe.Pointer(&src[0]),
@@ -141,7 +141,7 @@ func CompressLevel(dst, src []byte, level int) ([]byte, error) {
 func Decompress(dst, src []byte) ([]byte, error) {
 	decompress := func(dst, src []byte) ([]byte, error) {
 
-		cWritten := C.ZSTD_decompress(
+		cWritten := C.ZSTD0_decompress(
 			unsafe.Pointer(&dst[0]),
 			C.size_t(len(dst)),
 			unsafe.Pointer(&src[0]),

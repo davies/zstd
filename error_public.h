@@ -42,23 +42,23 @@ extern "C" {
 *  error codes list
 ******************************************/
 typedef enum {
-  ZSTD_error_no_error,
-  ZSTD_error_GENERIC,
-  ZSTD_error_prefix_unknown,
-  ZSTD_error_frameParameter_unsupported,
-  ZSTD_error_frameParameter_unsupportedBy32bits,
-  ZSTD_error_init_missing,
-  ZSTD_error_memory_allocation,
-  ZSTD_error_stage_wrong,
-  ZSTD_error_dstSize_tooSmall,
-  ZSTD_error_srcSize_wrong,
-  ZSTD_error_corruption_detected,
-  ZSTD_error_tableLog_tooLarge,
-  ZSTD_error_maxSymbolValue_tooLarge,
-  ZSTD_error_maxSymbolValue_tooSmall,
-  ZSTD_error_dictionary_corrupted,
-  ZSTD_error_maxCode
-} ZSTD_ErrorCode;
+  ZSTD0_error_no_error,
+  ZSTD0_error_GENERIC,
+  ZSTD0_error_prefix_unknown,
+  ZSTD0_error_frameParameter_unsupported,
+  ZSTD0_error_frameParameter_unsupportedBy32bits,
+  ZSTD0_error_init_missing,
+  ZSTD0_error_memory_allocation,
+  ZSTD0_error_stage_wrong,
+  ZSTD0_error_dstSize_tooSmall,
+  ZSTD0_error_srcSize_wrong,
+  ZSTD0_error_corruption_detected,
+  ZSTD0_error_tableLog_tooLarge,
+  ZSTD0_error_maxSymbolValue_tooLarge,
+  ZSTD0_error_maxSymbolValue_tooSmall,
+  ZSTD0_error_dictionary_corrupted,
+  ZSTD0_error_maxCode
+} ZSTD0_ErrorCode;
 
 /* note : functions provide error codes in reverse negative order,
           so compare with (size_t)(0-enum) */

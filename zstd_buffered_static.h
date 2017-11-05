@@ -30,8 +30,8 @@
     - zstd source repository : https://github.com/Cyan4973/zstd
     - ztsd public forum : https://groups.google.com/forum/#!forum/lz4c
 */
-#ifndef ZSTD_BUFFERED_STATIC_H
-#define ZSTD_BUFFERED_STATIC_H
+#ifndef ZSTD0_BUFFERED_STATIC_H
+#define ZSTD0_BUFFERED_STATIC_H
 
 /* The objects defined into this file should be considered experimental.
  * They are not labelled stable, as their prototype may change in the future.
@@ -45,18 +45,18 @@ extern "C" {
 /* *************************************
 *  Includes
 ***************************************/
-#include "zstd_static.h"     /* ZSTD_parameters */
+#include "zstd_static.h"     /* ZSTD0_parameters */
 #include "zstd_buffered.h"
 
 
 /* *************************************
 *  Advanced Streaming functions
 ***************************************/
-ZSTDLIB_API size_t ZBUFF_compressInit_advanced(ZBUFF_CCtx* cctx, const void* dict, size_t dictSize, ZSTD_parameters params);
+ZSTDLIB_API size_t ZBUFF0_compressInit_advanced(ZBUFF0_CCtx* cctx, const void* dict, size_t dictSize, ZSTD0_parameters params);
 
 
 #if defined (__cplusplus)
 }
 #endif
 
-#endif  /* ZSTD_BUFFERED_STATIC_H */
+#endif  /* ZSTD0_BUFFERED_STATIC_H */

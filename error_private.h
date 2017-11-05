@@ -64,8 +64,8 @@ extern "C" {
 /*-****************************************
 *  Customization
 ******************************************/
-typedef ZSTD_ErrorCode ERR_enum;
-#define PREFIX(name) ZSTD_error_##name
+typedef ZSTD0_ErrorCode ERR_enum;
+#define PREFIX(name) ZSTD0_error_##name
 
 
 /*-****************************************

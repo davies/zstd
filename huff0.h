@@ -48,46 +48,46 @@ extern "C" {
 /* ****************************************
 *  Huff0 simple functions
 ******************************************/
-size_t HUF_compress(void* dst, size_t maxDstSize,
+size_t HUF0_compress(void* dst, size_t maxDstSize,
               const void* src, size_t srcSize);
-size_t HUF_decompress(void* dst,  size_t dstSize,
+size_t HUF0_decompress(void* dst,  size_t dstSize,
                 const void* cSrc, size_t cSrcSize);
 /*!
-HUF_compress():
+HUF0_compress():
     Compress content of buffer 'src', of size 'srcSize', into destination buffer 'dst'.
-    'dst' buffer must be already allocated. Compression runs faster if maxDstSize >= HUF_compressBound(srcSize).
+    'dst' buffer must be already allocated. Compression runs faster if maxDstSize >= HUF0_compressBound(srcSize).
     Note : srcSize must be <= 128 KB
     @return : size of compressed data (<= maxDstSize)
     Special values : if return == 0, srcData is not compressible => Nothing is stored within dst !!!
                      if return == 1, srcData is a single repeated byte symbol (RLE compression)
-                     if HUF_isError(return), compression failed (more details using HUF_getErrorName())
+                     if HUF0_isError(return), compression failed (more details using HUF0_getErrorName())
 
-HUF_decompress():
+HUF0_decompress():
     Decompress Huff0 data from buffer 'cSrc', of size 'cSrcSize',
     into already allocated destination buffer 'dst', of size 'dstSize'.
     @dstSize : must be the **exact** size of original (uncompressed) data.
-    Note : in contrast with FSE, HUF_decompress can regenerate
+    Note : in contrast with FSE, HUF0_decompress can regenerate
            RLE (cSrcSize==1) and uncompressed (cSrcSize==dstSize) data,
            because it knows size to regenerate.
     @return : size of regenerated data (== dstSize)
-              or an error code, which can be tested using HUF_isError()
+              or an error code, which can be tested using HUF0_isError()
 */
 
 
 /* ****************************************
 *  Tool functions
 ******************************************/
-size_t HUF_compressBound(size_t size);       /* maximum compressed size */
+size_t HUF0_compressBound(size_t size);       /* maximum compressed size */
 
 /* Error Management */
-unsigned    HUF_isError(size_t code);        /* tells if a return value is an error code */
-const char* HUF_getErrorName(size_t code);   /* provides error code string (useful for debugging) */
+unsigned    HUF0_isError(size_t code);        /* tells if a return value is an error code */
+const char* HUF0_getErrorName(size_t code);   /* provides error code string (useful for debugging) */
 
 
 /* ****************************************
 *  Advanced functions
 ******************************************/
-size_t HUF_compress2 (void* dst, size_t dstSize, const void* src, size_t srcSize, unsigned maxSymbolValue, unsigned tableLog);
+size_t HUF0_compress2 (void* dst, size_t dstSize, const void* src, size_t srcSize, unsigned maxSymbolValue, unsigned tableLog);
 
 
 #if defined (__cplusplus)
