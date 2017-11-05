@@ -23,7 +23,7 @@ extern "C" {
 
 #if !defined (ZSTD_LEGACY_SUPPORT) || (ZSTD_LEGACY_SUPPORT == 0)
 #  undef ZSTD_LEGACY_SUPPORT
-#  define ZSTD_LEGACY_SUPPORT 8
+#  define ZSTD_LEGACY_SUPPORT 7
 #endif
 
 #if (ZSTD_LEGACY_SUPPORT <= 1)
