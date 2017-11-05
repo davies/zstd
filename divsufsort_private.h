@@ -72,8 +72,8 @@ extern "C" {
 # ifndef PRIdSAIDX_T
 #  define PRIdSAIDX_T PRIdSAIDX64_T
 # endif /* PRIdSAIDX_T */
-# define divsufsort divsufsort64
-# define divbwt divbwt64
+# define divsufsort0 divsufsort64
+# define divbwt0 divbwt64
 # define divsufsort_version divsufsort64_version
 # define bw_transform bw_transform64
 # define inverse_bw_transform inverse_bw_transform64
